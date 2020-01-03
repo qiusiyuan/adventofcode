@@ -7,6 +7,13 @@ class Program:
         self.relative_base = 0
         self.curr = 0
 
+    def clone(self):
+        new = Program([])
+        new.machine_code = self.machine_code
+        new.curr = self.curr
+        new.relative_base = self.relative_base
+        return new
+        
     def fillparam(self, code):
         if code[-1] == '1' or code[-1] == '2' or code[-1] == '7' or code[-1] == '8':
             return '0'*(5-len(code)) + code
